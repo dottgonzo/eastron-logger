@@ -7,8 +7,14 @@ const expect = chai.expect;
 
 let Logger: logger;
 
+const sensors=[
+    { baud: 2400, id: 1, dev: "/dev/ttyUSB0", model: 'SDM120CT', className: 'consumption',uid:'sdrgrgrh' }, 
+    { baud: 2400, id: 1, dev: "/dev/ttyUSB0", model: 'SDM120CT', className: 'production',uid:'sdrgw3452rgrh' }
+]
+
+
 before(() => {
-    Logger = new logger([{ baud: 2400, id: 1, dev: "/dev/ttyUSB0", model: 'SDM120CT' }, { baud: 2400, id: 1, dev: "/dev/ttyUSB0", model: 'SDM120CT' }])
+    Logger = new logger(sensors)
 })
 
 
@@ -31,6 +37,11 @@ describe("main test", function () {
             expect(a.factor).to.be.a('number');
             expect(a.phaseAngle).to.be.a('number');
             expect(a.hz).to.be.a('number');
+            
+            expect(a._id).to.be.a('string');
+            expect(a._id.split('_')[0]).to.be.eq(sensors[0].className);
+            expect(a.uid).to.be.a('string');
+
 
             expect(a.active.import).to.be.a('number');
             expect(a.active.export).to.be.a('number');
@@ -57,6 +68,11 @@ describe("main test", function () {
             expect(a.factor).to.be.a('number');
             expect(a.phaseAngle).to.be.a('number');
             expect(a.hz).to.be.a('number');
+
+            expect(a._id).to.be.a('string');
+            expect(a._id.split('_')[0]).to.be.eq(sensors[1].className);
+            expect(a.uid).to.be.a('string');
+
 
             expect(a.active.import).to.be.a('number');
             expect(a.active.export).to.be.a('number');
