@@ -17,8 +17,6 @@ interface EastronDevice {
 }
 
 
-
-
 export default class {
     devices: EastronDevice[];
     validTime: boolean;
@@ -28,7 +26,21 @@ export default class {
     last: any
 
     constructor(disps: EastronDevice[]) {
-        this.devices = disps;
+
+
+        if (!disps) {
+            throw Error("no disps")
+        } else {
+            if (disps[0] && disps[0].baud) {
+                this.devices = disps;
+            } else {
+                let d: any = [disps]
+                this.devices = <EastronDevice[]>d;
+                if (disps[0] && disps[0].baud) throw Error("malformed disps")
+            }
+        }
+
+
         this.validTime = false;
     }
 
@@ -99,20 +111,20 @@ export default class {
 
             async.eachSeries(disps, function (iterator, cb) {
 
-                    Eastron(iterator).then((a: any) => { // active flag is needed
-                        a.working = true;
-                        answers.push(a)
-                        cb()
-                    }).catch((err) => {
-                        answers.push({
-                            working: false,
-                            _id: iterator.uid,
-                            uid: iterator.uid,
-                            unixTime: 0
-                        })
-                        console.error('err', err);
-                        cb()
+                Eastron(iterator).then((a: any) => { // active flag is needed
+                    a.working = true;
+                    answers.push(a)
+                    cb()
+                }).catch((err) => {
+                    answers.push({
+                        working: false,
+                        _id: iterator.uid,
+                        uid: iterator.uid,
+                        unixTime: 0
                     })
+                    console.error('err', err);
+                    cb()
+                })
 
             }, function (err) {
                 if (err) {
