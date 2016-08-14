@@ -91,7 +91,6 @@ export default class {
     }
 
     data() {
-        console.log('data')
         let disps = this.devices
         return new Promise(function (resolve, reject) {
 
@@ -101,6 +100,8 @@ export default class {
             async.eachSeries(disps, function (iterator, cb) {
 
                 setTimeout(() => {
+                            console.log('data')
+
                     Eastron(iterator).then((a: any) => { // active flag is needed
                         a.working = true;
                         answers.push(a)
@@ -115,7 +116,7 @@ export default class {
                         console.error('err', err);
                         cb()
                     })
-                }, 2000)
+                }, 20000)
 
 
 
