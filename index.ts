@@ -99,8 +99,7 @@ export default class {
 
             async.eachSeries(disps, function (iterator, cb) {
 
-                setTimeout(() => {
-                            console.log('data')
+
 
                     Eastron(iterator).then((a: any) => { // active flag is needed
                         a.working = true;
@@ -116,7 +115,6 @@ export default class {
                         console.error('err', err);
                         cb()
                     })
-                }, 30000)
 
 
 
