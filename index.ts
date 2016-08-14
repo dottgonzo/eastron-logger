@@ -116,7 +116,7 @@ export default class {
                         console.error('err', err);
                         cb()
                     })
-                }, 20000)
+                }, 30000)
 
 
 

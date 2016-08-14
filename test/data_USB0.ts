@@ -21,7 +21,7 @@ describe("main test", function () {
         Logger.data().then((answer: any) => {
 
             let a = answer[0];
-            console.log(a)
+
             expect(a).to.be.an('Object');
             expect(a.active).to.be.an('Object');
             expect(a.reactive).to.be.an('Object');
@@ -47,7 +47,7 @@ describe("main test", function () {
 
 
           a = answer[1];
-            console.log(a)
+
             expect(a).to.be.an('Object');
             expect(a.active).to.be.an('Object');
             expect(a.reactive).to.be.an('Object');
