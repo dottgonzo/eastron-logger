@@ -44,6 +44,38 @@ describe("main test", function () {
             expect(a.unixTimestamp).to.be.a('number');
 
 
+
+
+          a = answer[1];
+            console.log(a)
+            expect(a).to.be.an('Object');
+            expect(a.active).to.be.an('Object');
+            expect(a.reactive).to.be.an('Object');
+            expect(a.voltage).to.be.a('number');
+            expect(a.current).to.be.a('number');
+            expect(a.power).to.be.a('number');
+            expect(a.factor).to.be.a('number');
+            expect(a.phaseAngle).to.be.a('number');
+            expect(a.hz).to.be.a('number');
+
+            expect(a.active.import).to.be.a('number');
+            expect(a.active.export).to.be.a('number');
+            expect(a.active.total).to.be.a('number');
+            expect(a.active.import).to.be.a('number');
+            expect(a.active.export).to.be.a('number');
+            expect(a.active.total).to.be.a('number');
+
+
+            expect(a.apiVersion).to.be.a('string');
+            expect(a.unixTimestamp).to.be.a('number');
+
+
+
+
+
+
+
+
             done()
         }).catch((err) => {
             done(Error(err))
