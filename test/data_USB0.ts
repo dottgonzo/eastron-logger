@@ -14,7 +14,7 @@ before(() => {
 
 
 describe("main test", function () {
-    this.timeout(50000);
+    this.timeout(90000);
 
     it("should return data", function (done) {
 
