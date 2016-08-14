@@ -70,12 +70,6 @@ describe("main test", function () {
             expect(a.unixTimestamp).to.be.a('number');
 
 
-
-
-
-
-
-
             done()
         }).catch((err) => {
             done(Error(err))
