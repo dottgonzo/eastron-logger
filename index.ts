@@ -5,7 +5,7 @@ import Eastron from 'modbus-eastron';
 
 let rpj = require("request-promise-json");
 
-let moment: any = require("moment-timezone");
+
 
 interface EastronDevice {
     dev?: string;
