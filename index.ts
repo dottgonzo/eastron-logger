@@ -99,20 +99,24 @@ export default class {
 
             async.eachSeries(disps, function (iterator, cb) {
 
-                Eastron(iterator).then((a: any) => { // active flag is needed
-                    a.active = true;
-                    answers.push(a)
-                    cb()
-                }).catch((err) => {
-                    answers.push({
-                        active: false,
-                        _id: iterator.uid,
-                        uid: iterator.uid,
-                        unixTime: 0
+                setTimeout(() => {
+                    Eastron(iterator).then((a: any) => { // active flag is needed
+                        a.active = true;
+                        answers.push(a)
+                        cb()
+                    }).catch((err) => {
+                        answers.push({
+                            active: false,
+                            _id: iterator.uid,
+                            uid: iterator.uid,
+                            unixTime: 0
+                        })
+                        console.error(err);
+                        cb()
                     })
-                    console.error(err);
-                    cb()
-                })
+                }, 2000)
+
+
 
             }, function (err) {
                 if (err) {
