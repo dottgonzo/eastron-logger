@@ -111,7 +111,7 @@ export default class {
                             uid: iterator.uid,
                             unixTime: 0
                         })
-                        console.error(err);
+                        console.error('err', err);
                         cb()
                     })
                 }, 2000)
