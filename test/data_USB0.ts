@@ -8,7 +8,7 @@ const expect = chai.expect;
 let Logger: logger;
 
 before(() => {
-    Logger = new logger([{ baud: 2400, id: 1, dev: "/dev/ttyUSB0", model: 'SDM120CT' }])
+    Logger = new logger([{ baud: 2400, id: 1, dev: "/dev/ttyUSB0", model: 'SDM120CT' },{ baud: 2400, id: 1, dev: "/dev/ttyUSB0", model: 'SDM120CT' }])
 })
 
 
