@@ -101,12 +101,12 @@ export default class {
 
                 setTimeout(() => {
                     Eastron(iterator).then((a: any) => { // active flag is needed
-                        a.active = true;
+                        a.working = true;
                         answers.push(a)
                         cb()
                     }).catch((err) => {
                         answers.push({
-                            active: false,
+                            working: false,
                             _id: iterator.uid,
                             uid: iterator.uid,
                             unixTime: 0
