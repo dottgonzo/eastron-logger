@@ -8,7 +8,7 @@ const expect = chai.expect;
 let Logger: logger;
 
 before(() => {
-    Logger = new logger([{ baud: 2400, id: 1, dev: "/dev/ttyUSB0", model: 'SDM120CT' },{ baud: 2400, id: 1, dev: "/dev/ttyUSB0", model: 'SDM120CT' }])
+    Logger = new logger([{ baud: 2400, id: 1, dev: "/dev/ttyUSB0", model: 'SDM120CT' }, { baud: 2400, id: 1, dev: "/dev/ttyUSB0", model: 'SDM120CT' }])
 })
 
 
@@ -21,7 +21,7 @@ describe("main test", function () {
         Logger.data().then((answer: any) => {
 
             let a = answer[0];
-
+            console.log(a)
             expect(a).to.be.an('Object');
             expect(a.active).to.be.an('Object');
             expect(a.reactive).to.be.an('Object');
