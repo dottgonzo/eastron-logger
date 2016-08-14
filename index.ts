@@ -14,7 +14,9 @@ interface EastronDevice {
     id: number;
     uid?: string;
     model: string;
+    className?: string;
 }
+
 
 
 export default class {
