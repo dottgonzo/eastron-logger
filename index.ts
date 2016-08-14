@@ -91,6 +91,7 @@ export default class {
     }
 
     data() {
+        console.log('data')
         let disps = this.devices
         return new Promise(function (resolve, reject) {
 
