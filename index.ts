@@ -106,6 +106,7 @@ export default class {
 
     data() {
         let disps = this.devices
+        let _this = this;
         return new Promise(function (resolve, reject) {
 
 
@@ -118,11 +119,14 @@ export default class {
                     answers.push(a)
                     cb()
                 }).catch((err) => {
+                    let cname = 'data';
+                    if (iterator.className) cname = iterator.className;
+
                     answers.push({
                         working: false,
-                        _id: iterator.uid,
+                        _id: cname + '_' + iterator.uid + '_' + new Date().getTime(),
                         uid: iterator.uid,
-                        unixTime: 0
+                        unixTime: new Date().getTime()
                     })
                     console.error('err', err);
                     cb()

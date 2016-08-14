@@ -1,6 +1,6 @@
 {
   "name": "eastron-logger",
-  "version": "0.3.2",
+  "version": "1.0.0",
   "description": "node class for modbus eastron devices",
   "main": "index.js",
   "scripts": {
